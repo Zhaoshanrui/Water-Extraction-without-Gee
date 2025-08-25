@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://rasterio.readthedocs.io/en/stable/ -->
+<html class="writer-html5" lang="en" data-content_root="./"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rasterio: access to geospatial raster data — rasterio 1.4.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/pygments.css">
+      <link rel="stylesheet" type="text/css" href="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/theme.css">
+
+  
+      <script src="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/jquery.js.下载"></script>
+      <script src="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/_sphinx_javascript_frameworks_compat.js.下载"></script>
+      <script src="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/documentation_options.js.下载"></script>
+      <script src="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/doctools.js.下载"></script>
+      <script src="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/sphinx_highlight.js.下载"></script>
+    <script src="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/theme.js.下载"></script>
+    <script src="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/versions.js.下载"></script>
+    <link rel="index" title="Index" href="https://rasterio.readthedocs.io/en/stable/genindex.html">
+    <link rel="search" title="Search" href="https://rasterio.readthedocs.io/en/stable/search.html">
+    <link rel="next" title="Introduction" href="https://rasterio.readthedocs.io/en/stable/intro.html"> 
+<script async="" type="text/javascript" src="./Rasterio_ access to geospatial raster data — rasterio 1.4.3 documentation_files/readthedocs-addons.js.下载"></script><meta name="readthedocs-project-slug" content="rasterio"><meta name="readthedocs-version-slug" content="stable"><meta name="readthedocs-resolver-filename" content="/"><meta name="readthedocs-http-status" content="200"></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          
+          
+          <a href="https://rasterio.readthedocs.io/en/stable/#" class="icon icon-home">
+            rasterio
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="https://rasterio.readthedocs.io/en/stable/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html">Python Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html">Command Line User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/index.html">Advanced Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/api/index.html">Rasterio API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="https://rasterio.readthedocs.io/en/stable/#">rasterio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="https://rasterio.readthedocs.io/en/stable/#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Rasterio: access to geospatial raster data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="https://rasterio.readthedocs.io/en/stable/_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rasterio-access-to-geospatial-raster-data">
+<h1>Rasterio: access to geospatial raster data<a class="headerlink" href="https://rasterio.readthedocs.io/en/stable/#rasterio-access-to-geospatial-raster-data" title="Link to this heading"></a></h1>
+<p>Geographic information systems use GeoTIFF and other formats to organize and
+store gridded raster datasets such as satellite imagery and terrain models.
+Rasterio reads and writes these formats and provides a Python API based on
+Numpy N-dimensional arrays and GeoJSON.</p>
+<p>Here’s an example program that extracts the GeoJSON shapes of a raster’s valid
+data footprint.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rasterio</span>
+<span class="kn">import</span> <span class="nn">rasterio.features</span>
+<span class="kn">import</span> <span class="nn">rasterio.warp</span>
+
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'example.tif'</span><span class="p">)</span> <span class="k">as</span> <span class="n">dataset</span><span class="p">:</span>
+
+    <span class="c1"># Read the dataset's valid data mask as a ndarray.</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">dataset_mask</span><span class="p">()</span>
+
+    <span class="c1"># Extract feature shapes and values from the array.</span>
+    <span class="k">for</span> <span class="n">geom</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">shapes</span><span class="p">(</span>
+            <span class="n">mask</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">transform</span><span class="p">):</span>
+
+        <span class="c1"># Transform shapes from the dataset's own coordinate</span>
+        <span class="c1"># reference system to CRS84 (EPSG:4326).</span>
+        <span class="n">geom</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">warp</span><span class="o">.</span><span class="n">transform_geom</span><span class="p">(</span>
+            <span class="n">dataset</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="s1">'EPSG:4326'</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+        <span class="c1"># Print GeoJSON shapes to stdout.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output of the program:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">'type'</span><span class="p">:</span> <span class="s1">'Polygon'</span><span class="p">,</span> <span class="s1">'coordinates'</span><span class="p">:</span> <span class="p">[[(</span><span class="o">-</span><span class="mf">77.730817</span><span class="p">,</span> <span class="mf">25.282335</span><span class="p">),</span> <span class="o">...</span><span class="p">]]}</span>
+</pre></div>
+</div>
+<p>Rasterio supports Python versions 3.6 or higher.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/intro.html#philosophy">Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/intro.html#rasterio-license">Rasterio license</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/installation.html#easy-installation">Easy installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/installation.html#advanced-installation">Advanced installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html">Python Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html#opening-a-dataset-in-reading-mode">Opening a dataset in reading mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html#dataset-attributes">Dataset attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html#dataset-georeferencing">Dataset georeferencing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html#reading-raster-data">Reading raster data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html#spatial-indexing">Spatial indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html#creating-data">Creating data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html#opening-a-dataset-in-writing-mode">Opening a dataset in writing mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/quickstart.html#saving-raster-data">Saving raster data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html">Command Line User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#creation-options">creation options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#blocks">blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#bounds">bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#calc">calc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#clip">clip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#convert">convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#create">create</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#edit-info">edit-info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#info">info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#insp">insp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#mask">mask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#merge">merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#overview">overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#rasterize">rasterize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#rm">rm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#sample">sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#shapes">shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#stack">stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#transform">transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#warp">warp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#rio-plugins">Rio Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/cli.html#other-commands">Other commands?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/index.html">Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/calc.html">Using rio-calc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/color.html">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/concurrency.html">Concurrent processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/configuration.html">GDAL Option Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/datasets.html">Advanced Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/features.html">Vector Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/fillnodata.html">Filling nodata areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/georeferencing.html">Georeferencing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/image_options.html">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/image_processing.html">Interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/masking-by-shapefile.html">Masking a raster using a shapefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/masks.html">Nodata Masks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/memory-files.html">In-Memory Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/migrating-to-v1.html">Migrating to Rasterio 1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/overviews.html">Overviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/profiles.html">Profiles and Writing Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/reading.html">Reading Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/reproject.html">Reprojection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/switch.html">Switching from GDAL’s Python bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/tags.html">Tagging datasets and bands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/transforms.html">Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/virtual-warping.html">Virtual Warping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/vsi.html">Virtual Filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/windowed-rw.html">Windowed reading and writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/topics/writing.html">Writing Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/api/index.html">Rasterio API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/api/rasterio.html">rasterio package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#rights">Rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#issue-conventions">Issue Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#design-principles">Design Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#dataset-objects">Dataset Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#path-objects">Path Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#band-objects">Band Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#gdal-context">GDAL Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#git-conventions">Git Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#conventions">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#new-containerized-development-environment">New Containerized Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#historical-development-environment">Historical Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/contributing.html#additional-information">Additional Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/faq.html#what-does-rasterioioerror-file-ecw-not-recognized-as-a-supported-file-format-mean">What does “RasterioIOError: file.ecw not recognized as a supported file format.” mean?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/faq.html#where-is-error-4-unable-to-open-epsg-support-file-gcs-csv-coming-from-and-what-does-it-mean">Where is “ERROR 4: Unable to open EPSG support file gcs.csv” coming from and what does it mean?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/faq.html#why-can-t-rasterio-find-proj-db-rasterio-versions-1-2-0">Why can’t rasterio find proj.db (rasterio versions &lt; 1.2.0)?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/faq.html#why-can-t-rasterio-find-proj-db-rasterio-from-pypi-versions-1-2-0">Why can’t rasterio find proj.db (rasterio from PyPI versions &gt;= 1.2.0)?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="indices-and-tables">
+<h2>Indices and Tables<a class="headerlink" href="https://rasterio.readthedocs.io/en/stable/#indices-and-tables" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="https://rasterio.readthedocs.io/en/stable/search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="https://rasterio.readthedocs.io/en/stable/intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>© Copyright 2018, Mapbox.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org/">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+
+</body></html>
