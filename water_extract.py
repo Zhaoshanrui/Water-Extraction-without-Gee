@@ -4,6 +4,7 @@ from skimage import filters, morphology, measure
 import matplotlib.pyplot as plt
 import json
 from typing import Tuple, Dict, Any
+from rasterio.warp import reproject, Resampling
 
 
 class WaterExtractionOptimized:
@@ -19,9 +20,24 @@ class WaterExtractionOptimized:
         return band
 
     def load_qa_band(self, qa_band_path: str) -> np.ndarray:
-        """加载QA波段数据"""
+        """加载QA波段数据，确保与主波段尺寸一致"""
         with rasterio.open(qa_band_path) as src:
-            qa_band = src.read(1)
+            # 如果已经有profile，确保QA波段与主波段尺寸一致
+            if self.profile is not None and (
+                    src.height != self.profile['height'] or src.width != self.profile['width']):
+                # 需要重采样
+                qa_band = np.zeros((self.profile['height'], self.profile['width']), dtype=src.dtypes[0])
+                reproject(
+                    source=rasterio.band(src, 1),
+                    destination=qa_band,
+                    src_transform=src.transform,
+                    src_crs=src.crs,
+                    dst_transform=self.profile['transform'],
+                    dst_crs=self.profile['crs'],
+                    resampling=Resampling.nearest
+                )
+            else:
+                qa_band = src.read(1)
         return qa_band
 
     def apply_cloud_mask(self, mndwi: np.ndarray, qa_band: np.ndarray) -> np.ndarray:
@@ -29,6 +45,10 @@ class WaterExtractionOptimized:
         应用云掩膜，去除云、云影和雪的影响
         基于Landsat QA_PIXEL波段的位掩码
         """
+        # 检查形状是否匹配
+        if mndwi.shape != qa_band.shape:
+            raise ValueError(f"MNDWI形状{mndwi.shape}与QA波段形状{qa_band.shape}不匹配")
+
         # 创建云掩膜（位1：云影，位3-4：云置信度，位5：云，位4：雪/冰）
         cloud_mask = np.zeros_like(qa_band, dtype=bool)
 
@@ -59,6 +79,10 @@ class WaterExtractionOptimized:
         """计算MNDWI指数"""
         green = self.load_band(green_band_path)
         swir = self.load_band(swir_band_path)
+
+        # 检查两个波段形状是否一致
+        if green.shape != swir.shape:
+            raise ValueError(f"绿波段形状{green.shape}与SWIR波段形状{swir.shape}不匹配")
 
         # 避免除以零，将无效值设为NaN
         np.seterr(divide='ignore', invalid='ignore')
@@ -260,14 +284,14 @@ def main():
     water_extractor = WaterExtractionOptimized()
 
     # 文件路径
-    green_band_path = "E:/桌面/mypaper/changsha/LC09_L2SP_123041_20240705_20240706_02_T1/LC09_L2SP_123041_20240705_20240706_02_T1_SR_B3.TIF"
-    swir_band_path = "E:/桌面/mypaper/changsha/LC09_L2SP_123041_20240705_20240706_02_T1/LC09_L2SP_123041_20240705_20240706_02_T1_SR_B6.TIF"
-    qa_band_path = "E:/桌面/mypaper/changsha/LC09_L2SP_123041_20240705_20240706_02_T1/LC09_L2SP_123041_20240705_20240706_02_T1_QA_PIXEL.TIF"
+    green_band_path = "E:/桌面/mypaper/changsha/Landsat_used/Landsat8_B1_Mosaic/changsha_landsat8/changsha_B3.tif"
+    swir_band_path = "E:/桌面/mypaper/changsha/Landsat_used/Landsat8_B1_Mosaic/changsha_landsat8/changsha_B6.tif"
+    qa_band_path = "E:/桌面/mypaper/changsha/Landsat_used/Landsat8_B1_Mosaic/changsha_landsat8/changsha_PIXEL.tif"
 
     # 输出文件路径
-    water_mask_output_path = 'extracted_water_mask_optimized.tif'
-    mndwi_output_path = 'mndwi_result_optimized.tif'
-    mndwi_masked_output_path = 'mndwi_masked_result.tif'
+    water_mask_output_path = 'extracted_water_mask_changsha.tif'
+    mndwi_output_path = 'mndwi_result_optimized_changsha.tif'
+    mndwi_masked_output_path = 'mndwi_masked_result_changsha.tif'
 
     try:
         # 计算MNDWI
